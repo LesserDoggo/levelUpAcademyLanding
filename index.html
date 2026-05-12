@@ -11,14 +11,128 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── Overrides para tags semânticas: mantém layout idêntico ao original ── */
+
+      /* nav-logo-icon: span precisa de display explícito pois o CSS usa flex implícito */
+      .nav-logo-icon { display: flex; }
+
+      /* hero-badge: era <div>, agora é <p> — display inline-flex já está no CSS,
+         mas <p> tem margin padrão do browser; zeramos */
+      p.hero-badge { margin-bottom: 28px; }
+
+      /* hero-buttons: era <div>, agora é <nav> — display:flex já no CSS via .hero-buttons */
+
+      /* hero-stats: era lista de <div>s; <ul> tem padding-left do browser — zeramos */
+      ul.hero-stats { padding-left: 0; }
+      ul.hero-stats li { list-style: none; }
+
+      /* about-mascot-area: era <div>, agora é <figure> — zera margin padrão de figure */
+      figure.about-mascot-area { margin: 0; }
+
+      /* mascot-name: era <span>, agora é <figcaption> — deve se comportar como bloco */
+      figcaption.mascot-name { display: block; }
+
+      /* platform-badges: <ul> tem padding-left do browser */
+      ul.platform-badges { padding-left: 0; }
+      ul.platform-badges li { list-style: none; }
+
+      /* mvv-grid: <ul> tem padding-left do browser */
+      ul.mvv-grid { padding-left: 0; }
+      ul.mvv-grid li { list-style: none; }
+
+      /* team-grid: <ul> tem padding-left do browser */
+      ul.team-grid { padding-left: 0; }
+      ul.team-grid li { list-style: none; }
+
+      /* team-avatar: era <div>, agora é <span> — precisa de display explícito */
+      span.team-avatar { display: flex; }
+
+      /* target-grid: <ul> tem padding-left */
+      ul.target-grid { padding-left: 0; }
+      ul.target-grid li { list-style: none; }
+
+      /* features-grid: <ul> tem padding-left */
+      ul.features-grid { padding-left: 0; }
+      ul.features-grid li { list-style: none; }
+
+      /* loop-container: <ol> tem padding-left e list-style */
+      ol.loop-container { padding-left: 0; list-style: none; }
+      ol.loop-container li { list-style: none; }
+
+      /* loop-icon: era <div>, agora é <span> — precisa de display explícito */
+      span.loop-icon { display: flex; }
+
+      /* diff-highlights: <ul> tem padding-left */
+      ul.diff-highlights { padding-left: 0; }
+      ul.diff-highlights li { list-style: none; }
+
+      /* steps: <ol> tem padding-left e list-style */
+      ol.steps { padding-left: 0; list-style: none; }
+      ol.steps li { list-style: none; }
+
+      /* step-num: era <div>, agora é <strong> — precisa de display explícito */
+      strong.step-num { display: flex; }
+
+      /* step-title: era <div>, agora é <h3> — zera margin padrão de heading */
+      h3.step-title { margin: 0 0 6px 0; }
+
+      /* step-desc: era <div>, agora é <p> — zera margin padrão de <p> */
+      p.step-desc { margin: 0; }
+
+      /* social-grid: <ul> tem padding-left */
+      ul.social-grid { padding-left: 0; }
+      ul.social-grid li { list-style: none; }
+
+      /* social-icon: era <div>, agora é <span> — precisa de display explícito */
+      span.social-icon { display: flex; }
+
+      /* social-name: era <div>, agora é <span> — display block para margin-bottom funcionar */
+      span.social-name { display: block; }
+
+      /* address no contact-grid: remove itálico do browser, se comporta como o <div> original */
+      address {
+        font-style: normal;
+        display: block;
+      }
+
+      /* contact-icon-wrap: era <div>, agora é <span> — precisa de display explícito */
+      span.contact-icon-wrap { display: flex; }
+
+      /* contact-label/value: eram <span> inline — contact-label precisa ser block */
+      span.contact-label { display: block; }
+
+      /* footer-logo: era <div>, agora é <a> — já tem display:flex no CSS, mas
+         <a> tem text-decoration e color que precisamos remover */
+      a.footer-logo { text-decoration: none; color: inherit; }
+
+      /* mvv-title/feature-title/diff-highlight-title: eram <div>, agora são <h4>
+         — zera margin padrão de heading */
+      h4.mvv-title,
+      h4.feature-title,
+      h4.diff-highlight-title { margin: 0 0 10px 0; }
+      h4.diff-highlight-title { margin-bottom: 4px; }
+
+      /* mvv-text/feature-desc/diff-highlight-desc: eram <div>, agora são <p> */
+      p.mvv-text,
+      p.feature-desc,
+      p.diff-highlight-desc { margin: 0; }
+
+      /* team-name: era <div>, agora é <strong> — display block para margin-bottom */
+      strong.team-name { display: block; }
+
+      /* team-role: era <div>, agora é <p> — zera margin */
+      p.team-role { margin: 0; }
+    </style>
   </head>
   <body>
+
     <!-- ═══════════════════════════════════════════
      NAV
-════════════════════════════════════════════ -->
+    ════════════════════════════════════════════ -->
     <nav>
       <a href="#hero" class="nav-logo">
-        <div class="nav-logo-icon">LU</div>
+        <span class="nav-logo-icon">LU</span>
         <span class="nav-logo-text">LEVELUP ACADEMY</span>
       </a>
       <ul class="nav-links">
@@ -32,624 +146,622 @@
       <button class="nav-hamburger" aria-label="Menu">☰</button>
     </nav>
 
-    <!-- ═══════════════════════════════════════════
-     HERO
-════════════════════════════════════════════ -->
-    <section id="hero">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-content">
-        <div class="hero-badge">
-          <div class="hero-badge-dot"></div>
-          MVP em Desenvolvimento · ADS 2026
+    <main>
+
+      <!-- ═══════════════════════════════════════════
+       HERO
+      ════════════════════════════════════════════ -->
+      <section id="hero" aria-label="Apresentação principal">
+        <span class="hero-orb hero-orb-1" aria-hidden="true"></span>
+        <span class="hero-orb hero-orb-2" aria-hidden="true"></span>
+        <div class="hero-content">
+          <p class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            MVP em Desenvolvimento · ADS 2026
+          </p>
+          <h1>
+            <span class="h1-line1">Aprenda. Evolua.</span>
+            <span class="h1-accent">Conquiste.</span>
+          </h1>
+          <p class="hero-desc">
+            A primeira plataforma de ensino gamificada com estética de RPG do
+            Brasil. Estude, ganhe recompensas e personalize seu próprio mundo de
+            acordo com seu progresso.
+          </p>
+          <div class="hero-buttons" role="group" aria-label="Ações principais">
+            <a href="#produto" class="btn-primary">Conhecer a Plataforma</a>
+            <a href="#como-funciona" class="btn-secondary">Ver Como Funciona</a>
+          </div>
+          <ul class="hero-stats" aria-label="Destaques">
+            <li class="hero-stat">
+              <strong class="hero-stat-num">100%</strong>
+              <span class="hero-stat-label">Gratuito</span>
+            </li>
+            <li class="hero-stat">
+              <strong class="hero-stat-num">RPG</strong>
+              <span class="hero-stat-label">Gamificação</span>
+            </li>
+            <li class="hero-stat">
+              <strong class="hero-stat-num">Mobile</strong>
+              <span class="hero-stat-label">Android &amp; iOS</span>
+            </li>
+          </ul>
         </div>
-        <h1>
-          <span class="h1-line1">Aprenda. Evolua.</span>
-          <span class="h1-accent">Conquiste.</span>
-        </h1>
-        <p class="hero-desc">
-          A primeira plataforma de ensino gamificada com estética de RPG do
-          Brasil. Estude, ganhe recompensas e personalize seu próprio mundo de
-          acordo com seu progresso.
-        </p>
-        <div class="hero-buttons">
-          <a href="#produto" class="btn-primary">Conhecer a Plataforma</a>
-          <a href="#como-funciona" class="btn-secondary">Ver Como Funciona</a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-num">100%</div>
-            <div class="hero-stat-label">Gratuito</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">RPG</div>
-            <div class="hero-stat-label">Gamificação</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">Mobile</div>
-            <div class="hero-stat-label">Android &amp; iOS</div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <hr class="divider" />
+      <hr class="divider" />
 
-    <!-- ═══════════════════════════════════════════
-     SOBRE
-════════════════════════════════════════════ -->
-    <section id="sobre">
-      <div class="section-inner">
-        <div class="about-grid">
-          <!-- Texto -->
-          <div>
-            <span class="section-label">Quem Somos</span>
-            <h2>Uma startup nascida dentro da sala de aula</h2>
-            <div class="about-text">
-              <p>
-                A <strong>LevelUp Academy</strong> nasceu de uma pergunta
-                simples: por que aprender precisa ser entediante? Somos
-                estudantes de
-                <strong>Análise e Desenvolvimento de Sistemas</strong> que
-                decidiram transformar educação digital em algo que as pessoas
-                realmente queiram fazer.
-              </p>
-              <p>
-                Nossa missão é combinar cursos gratuitos de qualidade com uma
-                camada de personalização inspirada em jogos — onde cada hora de
-                estudo te dá algo concreto: cosméticos para seu personagem e
-                itens para decorar sua casa virtual.
-              </p>
-              <p>
-                Estamos na fase de MVP, desenvolvendo em
-                <strong>React Native com Expo Router</strong>, com foco total na
-                experiência do usuário antes de escalar.
-              </p>
-            </div>
-            <div class="platform-badges">
-              <div class="platform-badge">📱 Android</div>
-              <div class="platform-badge">🍎 iOS</div>
-              <div class="platform-badge">🌐 Web</div>
-            </div>
-          </div>
-
-          <!-- Mascote Gecko -->
-          <div class="about-mascot-area">
-            <div class="mascot-frame">
-              <div class="corner-gem tl"></div>
-              <div class="corner-gem br"></div>
-              <img
-                src="mascote_sem_fundo.png"
-                class="mascot-svg"
-                alt="mascote"
-              />
-              <span class="mascot-name">Geckode · Gecko do Saber</span>
-            </div>
-          </div>
-        </div>
-        <!-- /about-grid -->
-
-        <!-- MVV -->
-        <div class="mvv-grid">
-          <div class="mvv-card reveal">
-            <span class="mvv-icon">🎯</span>
-            <div class="mvv-title">Missão</div>
-            <div class="mvv-text">
-              Democratizar o acesso à educação de qualidade, tornando o
-              aprendizado uma jornada engajante e recompensadora por meio da
-              gamificação.
-            </div>
-          </div>
-          <div class="mvv-card reveal">
-            <span class="mvv-icon">🔭</span>
-            <div class="mvv-title">Visão</div>
-            <div class="mvv-text">
-              Ser a principal plataforma de ensino gamificado do Brasil,
-              referência em inovação pedagógica e experiência do estudante.
-            </div>
-          </div>
-          <div class="mvv-card reveal">
-            <span class="mvv-icon">⚡</span>
-            <div class="mvv-title">Valores</div>
-            <div class="mvv-text">
-              Educação acessível · Inovação constante · Engajamento real ·
-              Diversão com propósito · Comunidade forte.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ═══════════════════════════════════════════
-     EQUIPE
-════════════════════════════════════════════ -->
-    <section id="equipe">
-      <div class="section-inner">
-        <span class="section-label">Nossa Equipe</span>
-        <h2>Os jogadores por trás da plataforma</h2>
-        <p class="section-sub">
-          Um time de três estudantes de ADS unidos por uma missão em comum.
-        </p>
-
-        <div class="team-grid">
-          <div class="team-card reveal">
-            <div
-              class="team-avatar"
-              style="background: linear-gradient(135deg, #3b82f6, #1d4ed8)"
-            >
-              BD
-            </div>
-            <div class="team-name">Bruno Domingos</div>
-            <div class="team-role">Documentação &amp; Planejamento</div>
-          </div>
-          <div class="team-card reveal">
-            <div
-              class="team-avatar"
-              style="background: linear-gradient(135deg, #ec4899, #9333ea)"
-            >
-              YN
-            </div>
-            <div class="team-name">Yasmin Novaes</div>
-            <div class="team-role">UI / UX Designer</div>
-          </div>
-          <div class="team-card reveal">
-            <div
-              class="team-avatar"
-              style="background: linear-gradient(135deg, #7c5cbf, #00d4ff)"
-            >
-              LF
-            </div>
-            <div class="team-name">Lucas Feliciano</div>
-            <div class="team-role">Dev &amp; Game Designer</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ═══════════════════════════════════════════
-     PRODUTO
-════════════════════════════════════════════ -->
-    <section id="produto">
-      <div class="section-inner">
-        <span class="section-label">O Produto</span>
-        <h2>LevelUp Academy — estude e personalize seu mundo</h2>
-        <p class="section-sub">
-          Cursos gratuitos integrados com um sistema de recompensas que deixa
-          seu personagem e sua casa cada vez mais únicos.
-        </p>
-
-        <!-- Loop principal -->
-        <div class="loop-container">
-          <div class="loop-step">
-            <div class="loop-icon">📚</div>
-            <div class="loop-label">Estudar</div>
-          </div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-step">
-            <div class="loop-icon">⭐</div>
-            <div class="loop-label">Ganhar XP</div>
-          </div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-step">
-            <div class="loop-icon">🎨</div>
-            <div class="loop-label">Desbloquear</div>
-          </div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-step">
-            <div class="loop-icon">🏠</div>
-            <div class="loop-label">Personalizar</div>
-          </div>
-          <div class="loop-arrow">→</div>
-          <div class="loop-step">
-            <div class="loop-icon">🔥</div>
-            <div class="loop-label">Motivação</div>
-          </div>
-        </div>
-
-        <!-- Público-alvo -->
-        <span class="section-label">Público-Alvo</span>
-        <div class="target-grid">
-          <div class="target-item">
-            🎓 Estudantes de ensino médio e superior
-          </div>
-          <div class="target-item">
-            💻 Jovens em transição de carreira para TI
-          </div>
-          <div class="target-item">
-            🎮 Pessoas que amam games e querem aprender
-          </div>
-          <div class="target-item">📱 Usuários mobile (18–35 anos)</div>
-        </div>
-
-        <!-- Funcionalidades -->
-        <h3
-          style="
-            font-family: var(--font-display);
-            font-size: 15px;
-            color: var(--text);
-            margin-bottom: 24px;
-            letter-spacing: 0.5px;
-          "
-        >
-          Principais Funcionalidades
-        </h3>
-        <div class="features-grid">
-          <div class="feature-card reveal">
-            <span class="feature-icon">🦎</span>
-            <div class="feature-title">Personagem Personalizável</div>
-            <div class="feature-desc">
-              Seu gecko Gex é seu avatar. Conforme você estuda, desbloqueia
-              cosméticos exclusivos — roupas, acessórios e skins — para deixá-lo
-              com a sua cara.
-            </div>
-          </div>
-          <div class="feature-card reveal">
-            <span class="feature-icon">🏠</span>
-            <div class="feature-title">Sua Casa, Sua Identidade</div>
-            <div class="feature-desc">
-              Ganhe itens de decoração ao progredir nos cursos e monte a casa
-              dos seus sonhos dentro do jogo. Cada item desbloqueado conta sua
-              história de estudante.
-            </div>
-          </div>
-          <div class="feature-card reveal">
-            <span class="feature-icon">📺</span>
-            <div class="feature-title">Cursos via WebView</div>
-            <div class="feature-desc">
-              Acesse conteúdo gratuito de plataformas reconhecidas integrado
-              diretamente no app. Aprenda de verdade sem sair da experiência
-              LevelUp.
-            </div>
-          </div>
-          <div class="feature-card reveal">
-            <span class="feature-icon">🔥</span>
-            <div class="feature-title">Streak Diário</div>
-            <div class="feature-desc">
-              Mantenha sua sequência de estudos e ganhe bônus especiais de XP e
-              moedas. Cada dia que você estuda, sua coleção cresce.
-            </div>
-          </div>
-          <div class="feature-card reveal">
-            <span class="feature-icon">💰</span>
-            <div class="feature-title">Sistema de Moedas</div>
-            <div class="feature-desc">
-              Ganhe moedas ao completar aulas e use-as na loja para desbloquear
-              cosméticos para o personagem e novos itens para sua casa.
-            </div>
-          </div>
-          <div class="feature-card reveal">
-            <span class="feature-icon">📊</span>
-            <div class="feature-title">Dashboard de Progresso</div>
-            <div class="feature-desc">
-              Veja onde parou em cada curso, seu XP acumulado, streak atual e
-              todos os itens já desbloqueados — tudo em uma tela limpa e
-              gamificada.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ═══════════════════════════════════════════
-     DIFERENCIAIS
-════════════════════════════════════════════ -->
-    <section id="diferenciais">
-      <div class="section-inner">
-        <span class="section-label">Diferenciais Competitivos</span>
-        <h2>Por que a LevelUp é diferente?</h2>
-        <p class="section-sub">
-          Não somos mais uma plataforma de cursos. Somos uma experiência de
-          personalização recompensada pelo estudo.
-        </p>
-
-        <div class="diff-grid">
-          <div>
-            <table class="diff-table">
-              <thead>
-                <tr>
-                  <th>Funcionalidade</th>
-                  <th class="our">LevelUp</th>
-                  <th style="color: var(--muted)">Concorrentes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Personagem Cosmetizável</td>
-                  <td class="check">✔</td>
-                  <td class="cross">✘</td>
-                </tr>
-                <tr>
-                  <td>Casa/Base Personalizável</td>
-                  <td class="check">✔</td>
-                  <td class="cross">✘</td>
-                </tr>
-                <tr>
-                  <td>Recompensas por Aula</td>
-                  <td class="check">✔</td>
-                  <td class="muted-mark">Parcial</td>
-                </tr>
-                <tr>
-                  <td>Cursos 100% Gratuitos</td>
-                  <td class="check">✔</td>
-                  <td class="muted-mark">Parcial</td>
-                </tr>
-                <tr>
-                  <td>Loop de Jogo Completo</td>
-                  <td class="check">✔</td>
-                  <td class="cross">✘</td>
-                </tr>
-                <tr>
-                  <td>Mobile Nativo (React Native)</td>
-                  <td class="check">✔</td>
-                  <td class="muted-mark">Parcial</td>
-                </tr>
-                <tr>
-                  <td>Estética Gamer + Dark Mode</td>
-                  <td class="check">✔</td>
-                  <td class="cross">✘</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="diff-highlights">
-            <div class="diff-highlight-item reveal">
-              <span class="diff-highlight-icon">🎨</span>
-              <div>
-                <div class="diff-highlight-title">
-                  Recompensa visível e imediata
-                </div>
-                <div class="diff-highlight-desc">
-                  Cada aula concluída desbloqueia algo que você pode ver: um
-                  cosmético novo no seu gecko ou um item diferente na sua casa.
-                  O progresso vira coleção.
-                </div>
+      <!-- ═══════════════════════════════════════════
+       A) APRESENTAÇÃO DA EMPRESA
+       1. Quem Somos + Identidade da Marca (Mascote)
+      ════════════════════════════════════════════ -->
+      <section id="sobre" aria-labelledby="sobre-titulo">
+        <div class="section-inner">
+          <article class="about-grid">
+            <!-- Texto + Plataformas -->
+            <div>
+              <span class="section-label">Quem Somos</span>
+              <h2 id="sobre-titulo">Uma startup nascida dentro da sala de aula</h2>
+              <div class="about-text">
+                <p>
+                  A <strong>LevelUp Academy</strong> nasceu de uma pergunta
+                  simples: por que aprender precisa ser entediante? Somos
+                  estudantes de
+                  <strong>Análise e Desenvolvimento de Sistemas</strong> que
+                  decidiram transformar educação digital em algo que as pessoas
+                  realmente queiram fazer.
+                </p>
+                <p>
+                  Nossa missão é combinar cursos gratuitos de qualidade com uma
+                  camada de personalização inspirada em jogos — onde cada hora de
+                  estudo te dá algo concreto: cosméticos para seu personagem e
+                  itens para decorar sua casa virtual.
+                </p>
+                <p>
+                  Estamos na fase de MVP, desenvolvendo em
+                  <strong>React Native com Expo Router</strong>, com foco total na
+                  experiência do usuário antes de escalar.
+                </p>
               </div>
+              <ul class="platform-badges" aria-label="Plataformas disponíveis">
+                <li class="platform-badge">📱 Android</li>
+                <li class="platform-badge">🍎 iOS</li>
+                <li class="platform-badge">🌐 Web</li>
+              </ul>
             </div>
-            <div class="diff-highlight-item reveal">
-              <span class="diff-highlight-icon">🆓</span>
-              <div>
-                <div class="diff-highlight-title">Totalmente gratuito</div>
-                <div class="diff-highlight-desc">
-                  Nenhum paywall para acessar os cursos. O acesso ao
-                  conhecimento é um direito — a experiência de jogo é o
-                  diferencial que nos torna únicos.
-                </div>
+
+            <!-- Identidade da Marca — Mascote Gecko -->
+            <figure class="about-mascot-area">
+              <div class="mascot-frame">
+                <span class="corner-gem tl" aria-hidden="true"></span>
+                <span class="corner-gem br" aria-hidden="true"></span>
+                <img
+                  src="mascote_sem_fundo.png"
+                  class="mascot-svg"
+                  alt="Geckode, mascote da LevelUp Academy — um gecko com trajes de aventureiro"
+                />
               </div>
-            </div>
-            <div class="diff-highlight-item reveal">
-              <span class="diff-highlight-icon">📱</span>
-              <div>
-                <div class="diff-highlight-title">
-                  Mobile-first, gamer por essência
-                </div>
-                <div class="diff-highlight-desc">
-                  Desenvolvido em React Native com Expo Router. Interface
-                  imersiva, modo tela cheia e design escuro — feito para quem
-                  estuda no celular.
-                </div>
-              </div>
-            </div>
-          </div>
+              <figcaption class="mascot-name">Geckode · Gecko do Saber</figcaption>
+            </figure>
+          </article>
+
+          <!-- 3. Missão, Visão e Valores -->
+          <section aria-labelledby="mvv-titulo">
+            <h3 id="mvv-titulo" class="sr-only">Missão, Visão e Valores</h3>
+            <ul class="mvv-grid" aria-label="Missão, Visão e Valores">
+              <li class="mvv-card reveal">
+                <span class="mvv-icon" aria-hidden="true">🎯</span>
+                <h4 class="mvv-title">Missão</h4>
+                <p class="mvv-text">
+                  Democratizar o acesso à educação de qualidade, tornando o
+                  aprendizado uma jornada engajante e recompensadora por meio da
+                  gamificação.
+                </p>
+              </li>
+              <li class="mvv-card reveal">
+                <span class="mvv-icon" aria-hidden="true">🔭</span>
+                <h4 class="mvv-title">Visão</h4>
+                <p class="mvv-text">
+                  Ser a principal plataforma de ensino gamificado do Brasil,
+                  referência em inovação pedagógica e experiência do estudante.
+                </p>
+              </li>
+              <li class="mvv-card reveal">
+                <span class="mvv-icon" aria-hidden="true">⚡</span>
+                <h4 class="mvv-title">Valores</h4>
+                <p class="mvv-text">
+                  Educação acessível · Inovação constante · Engajamento real ·
+                  Diversão com propósito · Comunidade forte.
+                </p>
+              </li>
+            </ul>
+          </section>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <hr class="divider" />
+      <hr class="divider" />
 
-    <!-- ═══════════════════════════════════════════
-     COMO FUNCIONA
-════════════════════════════════════════════ -->
-    <section id="como-funciona">
-      <div class="section-inner">
-        <span class="section-label">Como Funciona</span>
-        <h2>Sua jornada começa agora</h2>
-        <p class="section-sub">
-          Em poucos passos você estará dentro do universo LevelUp, estudando e
-          desbloqueando itens ao mesmo tempo.
-        </p>
+      <!-- ═══════════════════════════════════════════
+       A) APRESENTAÇÃO DA EMPRESA
+       2. Organograma da Equipe
+      ════════════════════════════════════════════ -->
+      <section id="equipe" aria-labelledby="equipe-titulo">
+        <div class="section-inner">
+          <span class="section-label">Nossa Equipe</span>
+          <h2 id="equipe-titulo">Os jogadores por trás da plataforma</h2>
+          <p class="section-sub">
+            Um time de três estudantes de ADS unidos por uma missão em comum.
+          </p>
 
-        <div class="steps">
-          <div class="step-item">
-            <div class="step-num">01</div>
-            <div class="step-content">
-              <div class="step-title">Baixe o app e crie sua conta</div>
-              <div class="step-desc">
-                Disponível para Android e iOS. Crie seu perfil em segundos — sem
-                cartão de crédito, sem pegadinhas. É 100% gratuito.
-              </div>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-num">02</div>
-            <div class="step-content">
-              <div class="step-title">Conheça o Gex, seu gecko companheiro</div>
-              <div class="step-desc">
-                Seu gecko pessoal é seu avatar no mundo LevelUp. Dê um nome a
-                ele e comece a jornada. Quanto mais você estuda, mais itens você
-                terá para personalizá-lo.
-              </div>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-num">03</div>
-            <div class="step-content">
-              <div class="step-title">Escolha um curso e estude</div>
-              <div class="step-desc">
-                Navegue pelo catálogo de cursos gratuitos. Cada aula concluída
-                gera XP e moedas que entram direto na sua carteira.
-              </div>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-num">04</div>
-            <div class="step-content">
-              <div class="step-title">Desbloqueie, decore e personalize</div>
-              <div class="step-desc">
-                Use suas moedas para comprar cosméticos para o Gex e itens para
-                sua casa virtual. Cada item é uma memória do que você aprendeu.
-              </div>
-            </div>
-          </div>
+          <ul class="team-grid" aria-label="Membros da equipe">
+            <li class="team-card reveal">
+              <span
+                class="team-avatar"
+                style="background: linear-gradient(135deg, #3b82f6, #1d4ed8)"
+                aria-hidden="true"
+              >BD</span>
+              <strong class="team-name">Bruno Domingos</strong>
+              <p class="team-role">Documentação &amp; Planejamento</p>
+            </li>
+            <li class="team-card reveal">
+              <span
+                class="team-avatar"
+                style="background: linear-gradient(135deg, #ec4899, #9333ea)"
+                aria-hidden="true"
+              >YN</span>
+              <strong class="team-name">Yasmin Novaes</strong>
+              <p class="team-role">UI / UX Designer</p>
+            </li>
+            <li class="team-card reveal">
+              <span
+                class="team-avatar"
+                style="background: linear-gradient(135deg, #7c5cbf, #00d4ff)"
+                aria-hidden="true"
+              >LF</span>
+              <strong class="team-name">Lucas Feliciano</strong>
+              <p class="team-role">Dev &amp; Game Designer</p>
+            </li>
+          </ul>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <hr class="divider" />
+      <hr class="divider" />
 
-    <!-- ═══════════════════════════════════════════
-     REDES SOCIAIS
-════════════════════════════════════════════ -->
-    <section id="redes">
-      <div class="section-inner">
-        <span class="section-label">Redes Sociais</span>
-        <h2>Acompanhe nossa jornada</h2>
-        <p class="section-sub">
-          Siga a LevelUp Academy e seja o primeiro a saber das novidades,
-          bastidores e lançamentos.
-        </p>
+      <!-- ═══════════════════════════════════════════
+       B) APRESENTAÇÃO DO PRODUTO / SOLUÇÃO
+      ════════════════════════════════════════════ -->
+      <section id="produto" aria-labelledby="produto-titulo">
+        <div class="section-inner">
+          <span class="section-label">O Produto</span>
+          <h2 id="produto-titulo">LevelUp Academy — estude e personalize seu mundo</h2>
+          <p class="section-sub">
+            Cursos gratuitos integrados com um sistema de recompensas que deixa
+            seu personagem e sua casa cada vez mais únicos.
+          </p>
 
-        <div class="social-grid">
-          <a
-            href="https://instagram.com/startup.levelup.academy"
-            target="_blank"
-            rel="noopener"
-            class="social-card"
-          >
-            <div
-              class="social-icon"
+          <!-- Loop principal de engajamento -->
+          <ol class="loop-container" aria-label="Loop de engajamento da plataforma">
+            <li class="loop-step">
+              <span class="loop-icon" aria-hidden="true">📚</span>
+              <span class="loop-label">Estudar</span>
+            </li>
+            <li class="loop-arrow" aria-hidden="true">→</li>
+            <li class="loop-step">
+              <span class="loop-icon" aria-hidden="true">⭐</span>
+              <span class="loop-label">Ganhar XP</span>
+            </li>
+            <li class="loop-arrow" aria-hidden="true">→</li>
+            <li class="loop-step">
+              <span class="loop-icon" aria-hidden="true">🎨</span>
+              <span class="loop-label">Desbloquear</span>
+            </li>
+            <li class="loop-arrow" aria-hidden="true">→</li>
+            <li class="loop-step">
+              <span class="loop-icon" aria-hidden="true">🏠</span>
+              <span class="loop-label">Personalizar</span>
+            </li>
+            <li class="loop-arrow" aria-hidden="true">→</li>
+            <li class="loop-step">
+              <span class="loop-icon" aria-hidden="true">🔥</span>
+              <span class="loop-label">Motivação</span>
+            </li>
+          </ol>
+
+          <!-- Público-alvo -->
+          <section aria-labelledby="publico-titulo">
+            <span id="publico-titulo" class="section-label">Público-Alvo</span>
+            <ul class="target-grid" aria-label="Público-alvo da plataforma">
+              <li class="target-item">🎓 Estudantes de ensino médio e superior</li>
+              <li class="target-item">💻 Jovens em transição de carreira para TI</li>
+              <li class="target-item">🎮 Pessoas que amam games e querem aprender</li>
+              <li class="target-item">📱 Usuários mobile (18–35 anos)</li>
+            </ul>
+          </section>
+
+          <!-- Funcionalidades -->
+          <section aria-labelledby="func-titulo">
+            <h3
+              id="func-titulo"
               style="
-                background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+                font-family: var(--font-display);
+                font-size: 15px;
+                color: var(--text);
+                margin-bottom: 24px;
+                letter-spacing: 0.5px;
               "
             >
-              📸
-            </div>
+              Principais Funcionalidades
+            </h3>
+            <ul class="features-grid" aria-label="Funcionalidades da plataforma">
+              <li class="feature-card reveal">
+                <span class="feature-icon" aria-hidden="true">🦎</span>
+                <h4 class="feature-title">Personagem Personalizável</h4>
+                <p class="feature-desc">
+                  Seu gecko Gex é seu avatar. Conforme você estuda, desbloqueia
+                  cosméticos exclusivos — roupas, acessórios e skins — para deixá-lo
+                  com a sua cara.
+                </p>
+              </li>
+              <li class="feature-card reveal">
+                <span class="feature-icon" aria-hidden="true">🏠</span>
+                <h4 class="feature-title">Sua Casa, Sua Identidade</h4>
+                <p class="feature-desc">
+                  Ganhe itens de decoração ao progredir nos cursos e monte a casa
+                  dos seus sonhos dentro do jogo. Cada item desbloqueado conta sua
+                  história de estudante.
+                </p>
+              </li>
+              <li class="feature-card reveal">
+                <span class="feature-icon" aria-hidden="true">📺</span>
+                <h4 class="feature-title">Cursos via WebView</h4>
+                <p class="feature-desc">
+                  Acesse conteúdo gratuito de plataformas reconhecidas integrado
+                  diretamente no app. Aprenda de verdade sem sair da experiência
+                  LevelUp.
+                </p>
+              </li>
+              <li class="feature-card reveal">
+                <span class="feature-icon" aria-hidden="true">🔥</span>
+                <h4 class="feature-title">Streak Diário</h4>
+                <p class="feature-desc">
+                  Mantenha sua sequência de estudos e ganhe bônus especiais de XP e
+                  moedas. Cada dia que você estuda, sua coleção cresce.
+                </p>
+              </li>
+              <li class="feature-card reveal">
+                <span class="feature-icon" aria-hidden="true">💰</span>
+                <h4 class="feature-title">Sistema de Moedas</h4>
+                <p class="feature-desc">
+                  Ganhe moedas ao completar aulas e use-as na loja para desbloquear
+                  cosméticos para o personagem e novos itens para sua casa.
+                </p>
+              </li>
+              <li class="feature-card reveal">
+                <span class="feature-icon" aria-hidden="true">📊</span>
+                <h4 class="feature-title">Dashboard de Progresso</h4>
+                <p class="feature-desc">
+                  Veja onde parou em cada curso, seu XP acumulado, streak atual e
+                  todos os itens já desbloqueados — tudo em uma tela limpa e
+                  gamificada.
+                </p>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ═══════════════════════════════════════════
+       B) DIFERENCIAIS COMPETITIVOS
+      ════════════════════════════════════════════ -->
+      <section id="diferenciais" aria-labelledby="diff-titulo">
+        <div class="section-inner">
+          <span class="section-label">Diferenciais Competitivos</span>
+          <h2 id="diff-titulo">Por que a LevelUp é diferente?</h2>
+          <p class="section-sub">
+            Não somos mais uma plataforma de cursos. Somos uma experiência de
+            personalização recompensada pelo estudo.
+          </p>
+
+          <div class="diff-grid">
             <div>
-              <div class="social-name">Instagram</div>
-              <div class="social-handle">@LevelUp Academy</div>
+              <table class="diff-table">
+                <caption class="sr-only">Comparativo de funcionalidades entre LevelUp Academy e concorrentes</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Funcionalidade</th>
+                    <th scope="col" class="our">LevelUp</th>
+                    <th scope="col" style="color: var(--muted)">Concorrentes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Personagem Cosmetizável</td>
+                    <td class="check">✔</td>
+                    <td class="cross">✘</td>
+                  </tr>
+                  <tr>
+                    <td>Casa/Base Personalizável</td>
+                    <td class="check">✔</td>
+                    <td class="cross">✘</td>
+                  </tr>
+                  <tr>
+                    <td>Recompensas por Aula</td>
+                    <td class="check">✔</td>
+                    <td class="muted-mark">Parcial</td>
+                  </tr>
+                  <tr>
+                    <td>Cursos 100% Gratuitos</td>
+                    <td class="check">✔</td>
+                    <td class="muted-mark">Parcial</td>
+                  </tr>
+                  <tr>
+                    <td>Loop de Jogo Completo</td>
+                    <td class="check">✔</td>
+                    <td class="cross">✘</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile Nativo (React Native)</td>
+                    <td class="check">✔</td>
+                    <td class="muted-mark">Parcial</td>
+                  </tr>
+                  <tr>
+                    <td>Estética Gamer + Dark Mode</td>
+                    <td class="check">✔</td>
+                    <td class="cross">✘</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <hr class="divider" />
-
-    <!-- ═══════════════════════════════════════════
-     CONTATO
-════════════════════════════════════════════ -->
-    <section id="contato">
-      <div class="section-inner">
-        <span class="section-label">Contato</span>
-        <h2>Fale com a guild</h2>
-        <p class="section-sub">
-          Seja parceiro, professor, investidor ou apenas curioso — adoramos
-          novas conexões.
-        </p>
-
-        <div class="contact-grid">
-          <!-- Info -->
-          <div>
-            <a
-              href="mailto:startup.levelupacademy@gmail.com"
-              class="contact-item"
-            >
-              <div class="contact-icon-wrap">📧</div>
-              <div>
-                <span class="contact-label">E-mail</span>
-                <span class="contact-value"
-                  >startup.levelupacademy@gmail.com</span
-                >
-              </div>
-            </a>
-            <a
-              href="https://instagram.com/startup.levelup.academy"
-              target="_blank"
-              rel="noopener"
-              class="contact-item"
-            >
-              <div class="contact-icon-wrap">📸</div>
-              <div>
-                <span class="contact-label">Instagram</span>
-                <span class="contact-value">@LevelUp Academy</span>
-              </div>
-            </a>
-          </div>
-
-          <!-- Formulário -->
-          <div class="contact-form">
-            <div class="form-title">Envie uma mensagem</div>
-            <form id="contact-form" novalidate>
-              <div class="form-group">
-                <label class="form-label" for="name">Nome</label>
-                <input
-                  id="name"
-                  type="text"
-                  class="form-input"
-                  placeholder="Seu nome completo"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">E-mail</label>
-                <input
-                  id="email"
-                  type="email"
-                  class="form-input"
-                  placeholder="seu@email.com"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="subject">Assunto</label>
-                <input
-                  id="subject"
-                  type="text"
-                  class="form-input"
-                  placeholder="Parceria, dúvida, sugestão..."
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="message">Mensagem</label>
-                <textarea
-                  id="message"
-                  class="form-input"
-                  placeholder="Conta pra gente o que você tem em mente..."
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="form-submit">
-                Enviar Mensagem ✦
-              </button>
-            </form>
+            <ul class="diff-highlights" aria-label="Principais diferenciais">
+              <li class="diff-highlight-item reveal">
+                <span class="diff-highlight-icon" aria-hidden="true">🎨</span>
+                <div>
+                  <h4 class="diff-highlight-title">Recompensa visível e imediata</h4>
+                  <p class="diff-highlight-desc">
+                    Cada aula concluída desbloqueia algo que você pode ver: um
+                    cosmético novo no seu gecko ou um item diferente na sua casa.
+                    O progresso vira coleção.
+                  </p>
+                </div>
+              </li>
+              <li class="diff-highlight-item reveal">
+                <span class="diff-highlight-icon" aria-hidden="true">🆓</span>
+                <div>
+                  <h4 class="diff-highlight-title">Totalmente gratuito</h4>
+                  <p class="diff-highlight-desc">
+                    Nenhum paywall para acessar os cursos. O acesso ao
+                    conhecimento é um direito — a experiência de jogo é o
+                    diferencial que nos torna únicos.
+                  </p>
+                </div>
+              </li>
+              <li class="diff-highlight-item reveal">
+                <span class="diff-highlight-icon" aria-hidden="true">📱</span>
+                <div>
+                  <h4 class="diff-highlight-title">Mobile-first, gamer por essência</h4>
+                  <p class="diff-highlight-desc">
+                    Desenvolvido em React Native com Expo Router. Interface
+                    imersiva, modo tela cheia e design escuro — feito para quem
+                    estuda no celular.
+                  </p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ═══════════════════════════════════════════
+       C) OFERTA E ACESSO AO PRODUTO — Como Funciona
+      ════════════════════════════════════════════ -->
+      <section id="como-funciona" aria-labelledby="como-titulo">
+        <div class="section-inner">
+          <span class="section-label">Como Funciona</span>
+          <h2 id="como-titulo">Sua jornada começa agora</h2>
+          <p class="section-sub">
+            Em poucos passos você estará dentro do universo LevelUp, estudando e
+            desbloqueando itens ao mesmo tempo.
+          </p>
+
+          <ol class="steps" aria-label="Passos para começar a usar a plataforma">
+            <li class="step-item">
+              <strong class="step-num">01</strong>
+              <div class="step-content">
+                <h3 class="step-title">Baixe o app e crie sua conta</h3>
+                <p class="step-desc">
+                  Disponível para Android e iOS. Crie seu perfil em segundos — sem
+                  cartão de crédito, sem pegadinhas. É 100% gratuito.
+                </p>
+              </div>
+            </li>
+            <li class="step-item">
+              <strong class="step-num">02</strong>
+              <div class="step-content">
+                <h3 class="step-title">Conheça o Gex, seu gecko companheiro</h3>
+                <p class="step-desc">
+                  Seu gecko pessoal é seu avatar no mundo LevelUp. Dê um nome a
+                  ele e comece a jornada. Quanto mais você estuda, mais itens você
+                  terá para personalizá-lo.
+                </p>
+              </div>
+            </li>
+            <li class="step-item">
+              <strong class="step-num">03</strong>
+              <div class="step-content">
+                <h3 class="step-title">Escolha um curso e estude</h3>
+                <p class="step-desc">
+                  Navegue pelo catálogo de cursos gratuitos. Cada aula concluída
+                  gera XP e moedas que entram direto na sua carteira.
+                </p>
+              </div>
+            </li>
+            <li class="step-item">
+              <strong class="step-num">04</strong>
+              <div class="step-content">
+                <h3 class="step-title">Desbloqueie, decore e personalize</h3>
+                <p class="step-desc">
+                  Use suas moedas para comprar cosméticos para o Gex e itens para
+                  sua casa virtual. Cada item é uma memória do que você aprendeu.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ═══════════════════════════════════════════
+       D) ABORDAGEM COMERCIAL — Redes Sociais
+      ════════════════════════════════════════════ -->
+      <section id="redes" aria-labelledby="redes-titulo">
+        <div class="section-inner">
+          <span class="section-label">Redes Sociais</span>
+          <h2 id="redes-titulo">Acompanhe nossa jornada</h2>
+          <p class="section-sub">
+            Siga a LevelUp Academy e seja o primeiro a saber das novidades,
+            bastidores e lançamentos.
+          </p>
+
+          <ul class="social-grid" aria-label="Redes sociais da LevelUp Academy">
+            <li>
+              <a
+                href="https://instagram.com/startup.levelup.academy"
+                target="_blank"
+                rel="noopener"
+                class="social-card"
+              >
+                <span
+                  class="social-icon"
+                  style="background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);"
+                  aria-hidden="true"
+                >📸</span>
+                <span>
+                  <span class="social-name">Instagram</span>
+                  <span class="social-handle">@LevelUp Academy</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ═══════════════════════════════════════════
+       A) INFORMAÇÕES DE CONTATO
+      ════════════════════════════════════════════ -->
+      <section id="contato" aria-labelledby="contato-titulo">
+        <div class="section-inner">
+          <span class="section-label">Contato</span>
+          <h2 id="contato-titulo">Fale com a guild</h2>
+          <p class="section-sub">
+            Seja parceiro, professor, investidor ou apenas curioso — adoramos
+            novas conexões.
+          </p>
+
+          <div class="contact-grid">
+            <!-- Info de contato -->
+            <address>
+              <a
+                href="mailto:startup.levelupacademy@gmail.com"
+                class="contact-item"
+              >
+                <span class="contact-icon-wrap" aria-hidden="true">📧</span>
+                <span>
+                  <span class="contact-label">E-mail</span>
+                  <span class="contact-value">startup.levelupacademy@gmail.com</span>
+                </span>
+              </a>
+              <a
+                href="https://instagram.com/startup.levelup.academy"
+                target="_blank"
+                rel="noopener"
+                class="contact-item"
+              >
+                <span class="contact-icon-wrap" aria-hidden="true">📸</span>
+                <span>
+                  <span class="contact-label">Instagram</span>
+                  <span class="contact-value">@LevelUp Academy</span>
+                </span>
+              </a>
+            </address>
+
+            <!-- Formulário de contato -->
+            <div class="contact-form">
+              <p class="form-title">Envie uma mensagem</p>
+              <form id="contact-form" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="name">Nome</label>
+                  <input
+                    id="name"
+                    type="text"
+                    class="form-input"
+                    placeholder="Seu nome completo"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">E-mail</label>
+                  <input
+                    id="email"
+                    type="email"
+                    class="form-input"
+                    placeholder="seu@email.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="subject">Assunto</label>
+                  <input
+                    id="subject"
+                    type="text"
+                    class="form-input"
+                    placeholder="Parceria, dúvida, sugestão..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="message">Mensagem</label>
+                  <textarea
+                    id="message"
+                    class="form-input"
+                    placeholder="Conta pra gente o que você tem em mente..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="form-submit">
+                  Enviar Mensagem ✦
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
 
     <!-- ═══════════════════════════════════════════
      FOOTER
-════════════════════════════════════════════ -->
+    ════════════════════════════════════════════ -->
     <footer>
       <div class="footer-inner">
         <div class="footer-top">
           <div>
-            <div class="footer-logo">
-              <div class="nav-logo-icon">LU</div>
+            <a href="#hero" class="footer-logo">
+              <span class="nav-logo-icon">LU</span>
               <span class="nav-logo-text">LEVELUP ACADEMY</span>
-            </div>
+            </a>
             <p class="footer-desc">
               A plataforma que transforma o estudo em uma jornada de
               personalização. Aprenda. Evolua. Conquiste.
             </p>
           </div>
-          <div class="footer-nav">
+          <div class="footer-nav" aria-label="Links do produto">
             <h4>Produto</h4>
             <ul>
               <li><a href="#produto">Funcionalidades</a></li>
@@ -657,7 +769,7 @@
               <li><a href="#como-funciona">Como funciona</a></li>
             </ul>
           </div>
-          <div class="footer-nav">
+          <div class="footer-nav" aria-label="Links da empresa">
             <h4>Empresa</h4>
             <ul>
               <li><a href="#sobre">Sobre nós</a></li>
@@ -665,7 +777,7 @@
               <li><a href="#contato">Contato</a></li>
             </ul>
           </div>
-          <div class="footer-nav">
+          <div class="footer-nav" aria-label="Redes sociais">
             <h4>Redes</h4>
             <ul>
               <li>
@@ -673,9 +785,7 @@
                   href="https://instagram.com/startup.levelup.academy"
                   target="_blank"
                   rel="noopener"
-                  >Instagram</a
-                >
-              </li>
+                >Instagram</a>
               </li>
               <li>
                 <a href="mailto:startup.levelupacademy@gmail.com">E-mail</a>
@@ -684,25 +794,23 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <div class="footer-copy">
+          <small class="footer-copy">
             © 2026 LevelUp Academy · Projeto de Conclusão de Curso · ADS · Todos
             os direitos reservados
-          </div>
-          <div class="footer-socials">
+          </small>
+          <div class="footer-socials" aria-label="Ícones de redes sociais">
             <a
               href="https://instagram.com/startup.levelup.academy"
               target="_blank"
               rel="noopener"
               class="footer-social-link"
               title="Instagram"
-              >📸</a
-            >
+            >📸</a>
             <a
               href="mailto:startup.levelupacademy@gmail.com"
               class="footer-social-link"
               title="E-mail"
-              >📧</a
-            >
+            >📧</a>
           </div>
         </div>
       </div>

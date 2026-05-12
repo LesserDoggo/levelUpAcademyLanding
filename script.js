@@ -66,10 +66,12 @@ if (hamburger && navLinksList) {
     navLinksList.style.gap = '20px';
   });
 
-  // Close menu when a link is clicked
+  // Close menu when a link is clicked (only on mobile)
   navLinksList.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinksList.style.display = 'none';
+      if (window.innerWidth <= 768) {
+        navLinksList.style.display = 'none';
+      }
     });
   });
 }
