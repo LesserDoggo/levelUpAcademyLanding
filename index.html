@@ -15,80 +15,144 @@
       /* ── Overrides para tags semânticas: mantém layout idêntico ao original ── */
 
       /* nav-logo-icon: span precisa de display explícito pois o CSS usa flex implícito */
-      .nav-logo-icon { display: flex; }
+      .nav-logo-icon {
+        display: flex;
+      }
 
       /* hero-badge: era <div>, agora é <p> — display inline-flex já está no CSS,
          mas <p> tem margin padrão do browser; zeramos */
-      p.hero-badge { margin-bottom: 28px; }
+      p.hero-badge {
+        margin-bottom: 28px;
+      }
 
       /* hero-buttons: era <div>, agora é <nav> — display:flex já no CSS via .hero-buttons */
 
       /* hero-stats: era lista de <div>s; <ul> tem padding-left do browser — zeramos */
-      ul.hero-stats { padding-left: 0; }
-      ul.hero-stats li { list-style: none; }
+      ul.hero-stats {
+        padding-left: 0;
+      }
+      ul.hero-stats li {
+        list-style: none;
+      }
 
       /* about-mascot-area: era <div>, agora é <figure> — zera margin padrão de figure */
-      figure.about-mascot-area { margin: 0; }
+      figure.about-mascot-area {
+        margin: 0;
+      }
 
       /* mascot-name: era <span>, agora é <figcaption> — deve se comportar como bloco */
-      figcaption.mascot-name { display: block; }
+      figcaption.mascot-name {
+        display: block;
+      }
 
       /* platform-badges: <ul> tem padding-left do browser */
-      ul.platform-badges { padding-left: 0; }
-      ul.platform-badges li { list-style: none; }
+      ul.platform-badges {
+        padding-left: 0;
+      }
+      ul.platform-badges li {
+        list-style: none;
+      }
 
       /* mvv-grid: <ul> tem padding-left do browser */
-      ul.mvv-grid { padding-left: 0; }
-      ul.mvv-grid li { list-style: none; }
+      ul.mvv-grid {
+        padding-left: 0;
+      }
+      ul.mvv-grid li {
+        list-style: none;
+      }
 
       /* team-grid: <ul> tem padding-left do browser */
-      ul.team-grid { padding-left: 0; }
-      ul.team-grid li { list-style: none; }
+      ul.team-grid {
+        padding-left: 0;
+      }
+      ul.team-grid li {
+        list-style: none;
+      }
 
       /* team-avatar: era <div>, agora é <span> — precisa de display explícito */
-      span.team-avatar { display: flex; }
+      span.team-avatar {
+        display: flex;
+      }
 
       /* target-grid: <ul> tem padding-left */
-      ul.target-grid { padding-left: 0; }
-      ul.target-grid li { list-style: none; }
+      ul.target-grid {
+        padding-left: 0;
+      }
+      ul.target-grid li {
+        list-style: none;
+      }
 
       /* features-grid: <ul> tem padding-left */
-      ul.features-grid { padding-left: 0; }
-      ul.features-grid li { list-style: none; }
+      ul.features-grid {
+        padding-left: 0;
+      }
+      ul.features-grid li {
+        list-style: none;
+      }
 
       /* loop-container: <ol> tem padding-left e list-style */
-      ol.loop-container { padding-left: 0; list-style: none; }
-      ol.loop-container li { list-style: none; }
+      ol.loop-container {
+        padding-left: 0;
+        list-style: none;
+      }
+      ol.loop-container li {
+        list-style: none;
+      }
 
       /* loop-icon: era <div>, agora é <span> — precisa de display explícito */
-      span.loop-icon { display: flex; }
+      span.loop-icon {
+        display: flex;
+      }
 
       /* diff-highlights: <ul> tem padding-left */
-      ul.diff-highlights { padding-left: 0; }
-      ul.diff-highlights li { list-style: none; }
+      ul.diff-highlights {
+        padding-left: 0;
+      }
+      ul.diff-highlights li {
+        list-style: none;
+      }
 
       /* steps: <ol> tem padding-left e list-style */
-      ol.steps { padding-left: 0; list-style: none; }
-      ol.steps li { list-style: none; }
+      ol.steps {
+        padding-left: 0;
+        list-style: none;
+      }
+      ol.steps li {
+        list-style: none;
+      }
 
       /* step-num: era <div>, agora é <strong> — precisa de display explícito */
-      strong.step-num { display: flex; }
+      strong.step-num {
+        display: flex;
+      }
 
       /* step-title: era <div>, agora é <h3> — zera margin padrão de heading */
-      h3.step-title { margin: 0 0 6px 0; }
+      h3.step-title {
+        margin: 0 0 6px 0;
+      }
 
       /* step-desc: era <div>, agora é <p> — zera margin padrão de <p> */
-      p.step-desc { margin: 0; }
+      p.step-desc {
+        margin: 0;
+      }
 
       /* social-grid: <ul> tem padding-left */
-      ul.social-grid { padding-left: 0; }
-      ul.social-grid li { list-style: none; }
+      ul.social-grid {
+        padding-left: 0;
+      }
+      ul.social-grid li {
+        list-style: none;
+      }
 
       /* social-icon: era <div>, agora é <span> — precisa de display explícito */
-      span.social-icon { display: flex; }
+      span.social-icon {
+        display: flex;
+      }
 
       /* social-name: era <div>, agora é <span> — display block para margin-bottom funcionar */
-      span.social-name { display: block; }
+      span.social-name {
+        display: block;
+      }
 
       /* address no contact-grid: remove itálico do browser, se comporta como o <div> original */
       address {
@@ -97,49 +161,66 @@
       }
 
       /* contact-icon-wrap: era <div>, agora é <span> — precisa de display explícito */
-      span.contact-icon-wrap { display: flex; }
+      span.contact-icon-wrap {
+        display: flex;
+      }
 
       /* contact-label/value: eram <span> inline — contact-label precisa ser block */
-      span.contact-label { display: block; }
+      span.contact-label {
+        display: block;
+      }
 
       /* footer-logo: era <div>, agora é <a> — já tem display:flex no CSS, mas
          <a> tem text-decoration e color que precisamos remover */
-      a.footer-logo { text-decoration: none; color: inherit; }
+      a.footer-logo {
+        text-decoration: none;
+        color: inherit;
+      }
 
       /* mvv-title/feature-title/diff-highlight-title: eram <div>, agora são <h4>
          — zera margin padrão de heading */
       h4.mvv-title,
       h4.feature-title,
-      h4.diff-highlight-title { margin: 0 0 10px 0; }
-      h4.diff-highlight-title { margin-bottom: 4px; }
+      h4.diff-highlight-title {
+        margin: 0 0 10px 0;
+      }
+      h4.diff-highlight-title {
+        margin-bottom: 4px;
+      }
 
       /* mvv-text/feature-desc/diff-highlight-desc: eram <div>, agora são <p> */
       p.mvv-text,
       p.feature-desc,
-      p.diff-highlight-desc { margin: 0; }
+      p.diff-highlight-desc {
+        margin: 0;
+      }
 
       /* team-name: era <div>, agora é <strong> — display block para margin-bottom */
-      strong.team-name { display: block; }
+      strong.team-name {
+        display: block;
+      }
 
       /* team-role: era <div>, agora é <p> — zera margin */
-      p.team-role { margin: 0; }
+      p.team-role {
+        margin: 0;
+      }
     </style>
   </head>
   <body>
-
     <!-- ═══════════════════════════════════════════
      NAV
     ════════════════════════════════════════════ -->
     <nav>
       <a href="#hero" class="nav-logo">
-        <span class="nav-logo-icon">LU</span>
-        <span class="nav-logo-text">LEVELUP ACADEMY</span>
+        <img src="images/icon.png" alt="LU" class="nav-logo-icon" />
+        <span class="nav-logo-text">LevelUP Academy</span>
       </a>
       <ul class="nav-links">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#equipe">Equipe</a></li>
         <li><a href="#produto">Produto</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#download">Download</a></li>
         <li><a href="#redes">Redes Sociais</a></li>
         <li><a href="#contato" class="nav-cta">Contato</a></li>
       </ul>
@@ -147,7 +228,6 @@
     </nav>
 
     <main>
-
       <!-- ═══════════════════════════════════════════
        HERO
       ════════════════════════════════════════════ -->
@@ -201,7 +281,9 @@
             <!-- Texto + Plataformas -->
             <div>
               <span class="section-label">Quem Somos</span>
-              <h2 id="sobre-titulo">Uma startup nascida dentro da sala de aula</h2>
+              <h2 id="sobre-titulo">
+                Uma startup nascida dentro da sala de aula
+              </h2>
               <div class="about-text">
                 <p>
                   A <strong>LevelUp Academy</strong> nasceu de uma pergunta
@@ -213,17 +295,21 @@
                 </p>
                 <p>
                   Nossa missão é combinar cursos gratuitos de qualidade com uma
-                  camada de personalização inspirada em jogos — onde cada hora de
-                  estudo te dá algo concreto: cosméticos para seu personagem e
-                  itens para decorar sua casa virtual.
+                  camada de personalização inspirada em jogos — onde cada hora
+                  de estudo te dá algo concreto: cosméticos para seu personagem
+                  e itens para decorar sua casa virtual.
                 </p>
                 <p>
                   Estamos na fase de MVP, desenvolvendo em
-                  <strong>React Native com Expo Router</strong>, com foco total na
-                  experiência do usuário antes de escalar.
+                  <strong>React Native com Expo Router</strong>, com foco total
+                  na experiência do usuário antes de escalar.
                 </p>
               </div>
-              <ul class="platform-badges" aria-label="Plataformas disponíveis">
+              <ul
+                class="platform-badges"
+                aria-label="Plataformas disponíveis"
+                style="margin-bottom: 10px"
+              >
                 <li class="platform-badge">📱 Android</li>
                 <li class="platform-badge">🍎 iOS</li>
                 <li class="platform-badge">🌐 Web</li>
@@ -241,13 +327,14 @@
                   alt="Geckode, mascote da LevelUp Academy — um gecko com trajes de aventureiro"
                 />
               </div>
-              <figcaption class="mascot-name">Geckode · Gecko do Saber</figcaption>
+              <figcaption class="mascot-name" style="margin: 5px">
+                Geckode · Gecko do Saber
+              </figcaption>
             </figure>
           </article>
 
           <!-- 3. Missão, Visão e Valores -->
           <section aria-labelledby="mvv-titulo">
-            <h3 id="mvv-titulo" class="sr-only">Missão, Visão e Valores</h3>
             <ul class="mvv-grid" aria-label="Missão, Visão e Valores">
               <li class="mvv-card reveal">
                 <span class="mvv-icon" aria-hidden="true">🎯</span>
@@ -298,8 +385,13 @@
               <span
                 class="team-avatar"
                 style="background: linear-gradient(135deg, #3b82f6, #1d4ed8)"
-                aria-hidden="true"
-              >BD</span>
+              >
+                <img
+                  src="images/bruno.jpg"
+                  alt="Foto de Bruno Domingos"
+                  class="team-avatar-photo"
+                />
+              </span>
               <strong class="team-name">Bruno Domingos</strong>
               <p class="team-role">Documentação &amp; Planejamento</p>
             </li>
@@ -307,8 +399,13 @@
               <span
                 class="team-avatar"
                 style="background: linear-gradient(135deg, #ec4899, #9333ea)"
-                aria-hidden="true"
-              >YN</span>
+              >
+                <img
+                  src="images/yasmin.jpg"
+                  alt="Foto de Yasmin Novaes"
+                  class="team-avatar-photo"
+                />
+              </span>
               <strong class="team-name">Yasmin Novaes</strong>
               <p class="team-role">UI / UX Designer</p>
             </li>
@@ -316,8 +413,13 @@
               <span
                 class="team-avatar"
                 style="background: linear-gradient(135deg, #7c5cbf, #00d4ff)"
-                aria-hidden="true"
-              >LF</span>
+              >
+                <img
+                  src="images/lucas.jpeg"
+                  alt="Foto de Lucas Feliciano"
+                  class="team-avatar-photo"
+                />
+              </span>
               <strong class="team-name">Lucas Feliciano</strong>
               <p class="team-role">Dev &amp; Game Designer</p>
             </li>
@@ -333,14 +435,19 @@
       <section id="produto" aria-labelledby="produto-titulo">
         <div class="section-inner">
           <span class="section-label">O Produto</span>
-          <h2 id="produto-titulo">LevelUp Academy — estude e personalize seu mundo</h2>
+          <h2 id="produto-titulo">
+            LevelUp Academy — estude e personalize seu mundo
+          </h2>
           <p class="section-sub">
             Cursos gratuitos integrados com um sistema de recompensas que deixa
             seu personagem e sua casa cada vez mais únicos.
           </p>
 
           <!-- Loop principal de engajamento -->
-          <ol class="loop-container" aria-label="Loop de engajamento da plataforma">
+          <ol
+            class="loop-container"
+            aria-label="Loop de engajamento da plataforma"
+          >
             <li class="loop-step">
               <span class="loop-icon" aria-hidden="true">📚</span>
               <span class="loop-label">Estudar</span>
@@ -370,10 +477,20 @@
           <!-- Público-alvo -->
           <section aria-labelledby="publico-titulo">
             <span id="publico-titulo" class="section-label">Público-Alvo</span>
-            <ul class="target-grid" aria-label="Público-alvo da plataforma">
-              <li class="target-item">🎓 Estudantes de ensino médio e superior</li>
-              <li class="target-item">💻 Jovens em transição de carreira para TI</li>
-              <li class="target-item">🎮 Pessoas que amam games e querem aprender</li>
+            <ul
+              class="target-grid"
+              aria-label="Público-alvo da plataforma"
+              style="padding-left: 15px"
+            >
+              <li class="target-item">
+                🎓 Estudantes de ensino médio e superior
+              </li>
+              <li class="target-item">
+                💻 Jovens em transição de carreira para TI
+              </li>
+              <li class="target-item">
+                🎮 Pessoas que amam games e querem aprender
+              </li>
               <li class="target-item">📱 Usuários mobile (18–35 anos)</li>
             </ul>
           </section>
@@ -392,23 +509,26 @@
             >
               Principais Funcionalidades
             </h3>
-            <ul class="features-grid" aria-label="Funcionalidades da plataforma">
+            <ul
+              class="features-grid"
+              aria-label="Funcionalidades da plataforma"
+            >
               <li class="feature-card reveal">
                 <span class="feature-icon" aria-hidden="true">🦎</span>
                 <h4 class="feature-title">Personagem Personalizável</h4>
                 <p class="feature-desc">
                   Seu gecko Gex é seu avatar. Conforme você estuda, desbloqueia
-                  cosméticos exclusivos — roupas, acessórios e skins — para deixá-lo
-                  com a sua cara.
+                  cosméticos exclusivos — roupas, acessórios e skins — para
+                  deixá-lo com a sua cara.
                 </p>
               </li>
               <li class="feature-card reveal">
                 <span class="feature-icon" aria-hidden="true">🏠</span>
                 <h4 class="feature-title">Sua Casa, Sua Identidade</h4>
                 <p class="feature-desc">
-                  Ganhe itens de decoração ao progredir nos cursos e monte a casa
-                  dos seus sonhos dentro do jogo. Cada item desbloqueado conta sua
-                  história de estudante.
+                  Ganhe itens de decoração ao progredir nos cursos e monte a
+                  casa dos seus sonhos dentro do jogo. Cada item desbloqueado
+                  conta sua história de estudante.
                 </p>
               </li>
               <li class="feature-card reveal">
@@ -424,24 +544,25 @@
                 <span class="feature-icon" aria-hidden="true">🔥</span>
                 <h4 class="feature-title">Streak Diário</h4>
                 <p class="feature-desc">
-                  Mantenha sua sequência de estudos e ganhe bônus especiais de XP e
-                  moedas. Cada dia que você estuda, sua coleção cresce.
+                  Mantenha sua sequência de estudos e ganhe bônus especiais de
+                  XP e moedas. Cada dia que você estuda, sua coleção cresce.
                 </p>
               </li>
               <li class="feature-card reveal">
                 <span class="feature-icon" aria-hidden="true">💰</span>
                 <h4 class="feature-title">Sistema de Moedas</h4>
                 <p class="feature-desc">
-                  Ganhe moedas ao completar aulas e use-as na loja para desbloquear
-                  cosméticos para o personagem e novos itens para sua casa.
+                  Ganhe moedas ao completar aulas e use-as na loja para
+                  desbloquear cosméticos para o personagem e novos itens para
+                  sua casa.
                 </p>
               </li>
               <li class="feature-card reveal">
                 <span class="feature-icon" aria-hidden="true">📊</span>
                 <h4 class="feature-title">Dashboard de Progresso</h4>
                 <p class="feature-desc">
-                  Veja onde parou em cada curso, seu XP acumulado, streak atual e
-                  todos os itens já desbloqueados — tudo em uma tela limpa e
+                  Veja onde parou em cada curso, seu XP acumulado, streak atual
+                  e todos os itens já desbloqueados — tudo em uma tela limpa e
                   gamificada.
                 </p>
               </li>
@@ -467,12 +588,17 @@
           <div class="diff-grid">
             <div>
               <table class="diff-table">
-                <caption class="sr-only">Comparativo de funcionalidades entre LevelUp Academy e concorrentes</caption>
+                <caption class="sr-only">
+                  Comparativo de funcionalidades entre LevelUp Academy e
+                  concorrentes
+                </caption>
                 <thead>
                   <tr>
                     <th scope="col">Funcionalidade</th>
                     <th scope="col" class="our">LevelUp</th>
-                    <th scope="col" style="color: var(--muted)">Concorrentes</th>
+                    <th scope="col" style="color: var(--muted)">
+                      Concorrentes
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -519,11 +645,13 @@
               <li class="diff-highlight-item reveal">
                 <span class="diff-highlight-icon" aria-hidden="true">🎨</span>
                 <div>
-                  <h4 class="diff-highlight-title">Recompensa visível e imediata</h4>
+                  <h4 class="diff-highlight-title">
+                    Recompensa visível e imediata
+                  </h4>
                   <p class="diff-highlight-desc">
                     Cada aula concluída desbloqueia algo que você pode ver: um
-                    cosmético novo no seu gecko ou um item diferente na sua casa.
-                    O progresso vira coleção.
+                    cosmético novo no seu gecko ou um item diferente na sua
+                    casa. O progresso vira coleção.
                   </p>
                 </div>
               </li>
@@ -541,7 +669,9 @@
               <li class="diff-highlight-item reveal">
                 <span class="diff-highlight-icon" aria-hidden="true">📱</span>
                 <div>
-                  <h4 class="diff-highlight-title">Mobile-first, gamer por essência</h4>
+                  <h4 class="diff-highlight-title">
+                    Mobile-first, gamer por essência
+                  </h4>
                   <p class="diff-highlight-desc">
                     Desenvolvido em React Native com Expo Router. Interface
                     imersiva, modo tela cheia e design escuro — feito para quem
@@ -568,14 +698,17 @@
             desbloqueando itens ao mesmo tempo.
           </p>
 
-          <ol class="steps" aria-label="Passos para começar a usar a plataforma">
+          <ol
+            class="steps"
+            aria-label="Passos para começar a usar a plataforma"
+          >
             <li class="step-item">
               <strong class="step-num">01</strong>
               <div class="step-content">
                 <h3 class="step-title">Baixe o app e crie sua conta</h3>
                 <p class="step-desc">
-                  Disponível para Android e iOS. Crie seu perfil em segundos — sem
-                  cartão de crédito, sem pegadinhas. É 100% gratuito.
+                  Disponível para Android e iOS. Crie seu perfil em segundos —
+                  sem cartão de crédito, sem pegadinhas. É 100% gratuito.
                 </p>
               </div>
             </li>
@@ -585,8 +718,8 @@
                 <h3 class="step-title">Conheça o Gex, seu gecko companheiro</h3>
                 <p class="step-desc">
                   Seu gecko pessoal é seu avatar no mundo LevelUp. Dê um nome a
-                  ele e comece a jornada. Quanto mais você estuda, mais itens você
-                  terá para personalizá-lo.
+                  ele e comece a jornada. Quanto mais você estuda, mais itens
+                  você terá para personalizá-lo.
                 </p>
               </div>
             </li>
@@ -605,12 +738,60 @@
               <div class="step-content">
                 <h3 class="step-title">Desbloqueie, decore e personalize</h3>
                 <p class="step-desc">
-                  Use suas moedas para comprar cosméticos para o Gex e itens para
-                  sua casa virtual. Cada item é uma memória do que você aprendeu.
+                  Use suas moedas para comprar cosméticos para o Gex e itens
+                  para sua casa virtual. Cada item é uma memória do que você
+                  aprendeu.
                 </p>
               </div>
             </li>
           </ol>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ═══════════════════════════════════════════
+       DOWNLOAD DO APK
+      ════════════════════════════════════════════ -->
+      <section id="download" aria-labelledby="download-titulo">
+        <div class="section-inner" style="text-align: center">
+          <span class="section-label">Disponível Agora</span>
+          <h2 id="download-titulo">Baixe o app e comece sua jornada</h2>
+          <p class="section-sub" style="margin: 0 auto 48px">
+            O MVP da LevelUp Academy já está disponível para Android. Instale o
+            APK, crie seu gecko e comece a ganhar recompensas estudando hoje
+            mesmo.
+          </p>
+
+          <div class="download-card reveal">
+            <div class="download-icon-wrap" aria-hidden="true">
+              <span class="download-android-icon" style="padding-top: 4px">
+                <img
+                  src="images/android.png"
+                  alt="🤖"
+                  style="width: 42px; height: 42px"
+                />
+              </span>
+            </div>
+            <div class="download-info">
+              <h3 class="download-platform">Android APK</h3>
+              <p class="download-desc">Versão MVP · React Native + Expo</p>
+            </div>
+            <a
+              href="https://www.transfernow.net/d/start?utm_source=2026060826Yrsumr&utm_term=urJp5U"
+              target="_blank"
+              rel="noopener"
+              class="download-btn"
+            >
+              <span aria-hidden="true">⬇</span> Baixar APK
+            </a>
+          </div>
+
+          <p class="download-note">
+            ⚠️ Para instalar, habilite
+            <strong>"Fontes desconhecidas"</strong> nas configurações do seu
+            Android.
+          </p>
         </div>
       </section>
 
@@ -638,9 +819,28 @@
               >
                 <span
                   class="social-icon"
-                  style="background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #833ab4,
+                      #fd1d1d,
+                      #fcb045
+                    );
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-left: 4px;
+                    padding-top: 2px;
+                  "
                   aria-hidden="true"
-                >📸</span>
+                >
+                  <img
+                    src="images/instagram-logo.png"
+                    alt="📸"
+                    style="width: 48px; height: 48px"
+                    ;
+                  />
+                </span>
                 <span>
                   <span class="social-name">Instagram</span>
                   <span class="social-handle">@LevelUp Academy</span>
@@ -672,10 +872,31 @@
                 href="mailto:startup.levelupacademy@gmail.com"
                 class="contact-item"
               >
-                <span class="contact-icon-wrap" aria-hidden="true">📧</span>
+                <span
+                  class="contact-icon-wrap"
+                  aria-hidden="true"
+                  style="
+                    padding-left: 2px;
+                    background: linear-gradient(
+                      135deg,
+                      #dffbff,
+                      #b3cdda,
+                      #8c93a7
+                    );
+                  "
+                >
+                  <img
+                    src="images/mail.png"
+                    alt="📧"
+                    style="width: 30px; height: 30px"
+                    ;
+                  />
+                </span>
                 <span>
                   <span class="contact-label">E-mail</span>
-                  <span class="contact-value">startup.levelupacademy@gmail.com</span>
+                  <span class="contact-value"
+                    >startup.levelupacademy@gmail.com</span
+                  >
                 </span>
               </a>
               <a
@@ -684,65 +905,35 @@
                 rel="noopener"
                 class="contact-item"
               >
-                <span class="contact-icon-wrap" aria-hidden="true">📸</span>
+                <span
+                  class="contact-icon-wrap"
+                  aria-hidden="true"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #833ab4,
+                      #fd1d1d,
+                      #fcb045
+                    );
+                    display: flex;
+                    padding-left: 3px;
+                  "
+                >
+                  <img
+                    src="images/instagram-logo.png"
+                    alt="📸"
+                    style="width: 32px; height: 32px"
+                  />
+                </span>
                 <span>
                   <span class="contact-label">Instagram</span>
                   <span class="contact-value">@LevelUp Academy</span>
                 </span>
               </a>
             </address>
-
-            <!-- Formulário de contato -->
-            <div class="contact-form">
-              <p class="form-title">Envie uma mensagem</p>
-              <form id="contact-form" novalidate>
-                <div class="form-group">
-                  <label class="form-label" for="name">Nome</label>
-                  <input
-                    id="name"
-                    type="text"
-                    class="form-input"
-                    placeholder="Seu nome completo"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="email">E-mail</label>
-                  <input
-                    id="email"
-                    type="email"
-                    class="form-input"
-                    placeholder="seu@email.com"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="subject">Assunto</label>
-                  <input
-                    id="subject"
-                    type="text"
-                    class="form-input"
-                    placeholder="Parceria, dúvida, sugestão..."
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="message">Mensagem</label>
-                  <textarea
-                    id="message"
-                    class="form-input"
-                    placeholder="Conta pra gente o que você tem em mente..."
-                    required
-                  ></textarea>
-                </div>
-                <button type="submit" class="form-submit">
-                  Enviar Mensagem ✦
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- ═══════════════════════════════════════════
@@ -753,7 +944,7 @@
         <div class="footer-top">
           <div>
             <a href="#hero" class="footer-logo">
-              <span class="nav-logo-icon">LU</span>
+              <img src="images/icon.png" alt="LU" class="nav-logo-icon" />
               <span class="nav-logo-text">LEVELUP ACADEMY</span>
             </a>
             <p class="footer-desc">
@@ -767,6 +958,7 @@
               <li><a href="#produto">Funcionalidades</a></li>
               <li><a href="#diferenciais">Diferenciais</a></li>
               <li><a href="#como-funciona">Como funciona</a></li>
+              <li><a href="#download">Download APK</a></li>
             </ul>
           </div>
           <div class="footer-nav" aria-label="Links da empresa">
@@ -785,7 +977,8 @@
                   href="https://instagram.com/startup.levelup.academy"
                   target="_blank"
                   rel="noopener"
-                >Instagram</a>
+                  >Instagram</a
+                >
               </li>
               <li>
                 <a href="mailto:startup.levelupacademy@gmail.com">E-mail</a>
@@ -805,12 +998,36 @@
               rel="noopener"
               class="footer-social-link"
               title="Instagram"
-            >📸</a>
+              style="
+                padding-top: 2px;
+                padding-left: 2px;
+                background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+              "
+            >
+              <img
+                src="images/instagram-logo.png"
+                alt="📸"
+                style="width: 22px; height: 22px"
+                ;
+              />
+            </a>
             <a
               href="mailto:startup.levelupacademy@gmail.com"
               class="footer-social-link"
               title="E-mail"
-            >📧</a>
+              style="
+                padding-top: 1px;
+                padding-left: 1px;
+                background: linear-gradient(135deg, #dffbff, #b3cdda, #8c93a7);
+              "
+            >
+              <img
+                src="images/mail.png"
+                alt="📧"
+                style="width: 22px; height: 22px"
+                ;
+              />
+            </a>
           </div>
         </div>
       </div>
